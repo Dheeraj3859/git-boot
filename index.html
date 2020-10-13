@@ -31,7 +31,7 @@
      				
      			</ul>
      			<span class="navbar-text">
-     				<a href="" data-toggle="modal" data-target="#loginModal">
+     				<a id="loginM" data-toggle="modal" data-target="#loginModal">
      					<span class="fa fa-sign-in">
      						Login
      					</span>
@@ -83,12 +83,12 @@
      	<div class="modal-dialog modal-lg" role="content">
      		<div class="modal-content">
      			<div class="modal-header">
-     				<h4 class="modal-title">Reserve a Table</h4>
-     				<button type="button" class="close" data-dismiss="modal">
+     				<h4 id="table" class="modal-title">Reserve a Table</h4>
+     				<button id="closebtn" type="button" class="close" data-dismiss="modal">
      					&times;
      				</button>
      			</div>
-     			<div class="modal-body">
+     			<div id="tablebody" class="modal-body">
      				<form class="card card-body" id="reserve">
         			<div class="form-group row">
         				<label for="guests" class="col-md-2 col-form-label" >Number of guests</label>
@@ -148,7 +148,7 @@
                 	<img src="img/logo.png" class="img-fluid">
                 </div>
                 <div class="col-12 col-sm align-self-center">
-                	<button class="bg-warning text-dark btn-block btn-lg"><a href="#reservemodal" class="nav-link btn-block" data-toggle="modal" data-html="true" title="Or call us at <br><strong>+852 12345678 </strong>" data-placement="bottom">Reserve Table</a></button> 
+                	<button class="bg-warning text-dark btn-block btn-lg"><a id="resv" href="#reservemodal" class="nav-link btn-block" data-toggle="modal" data-html="true" title="Or call us at <br><strong>+852 12345678 </strong>" data-placement="bottom">Reserve Table</a></button> 
                 	<!--<a href="#reserve" role="button" class="btn-warning bg-warning btn-block nav-link align-self-center">Reserve Table</a> -->
                 </div>
             </div>
@@ -371,8 +371,20 @@
             		$('#carouselButton').children('span').addClass('fa-pause');
             	}
                 
+
             });
-           
+            $('#loginM').removeAttr('data-html');
+            $('#loginM').removeAttr('data-target');
+            $('#resv').removeAttr('data-toggle');
+            $('#resv').removeAttr('data-html');
+            $('#resv').removeAttr('data-placement');
+           	$('#resv').click(function(){
+           		$('#reservemodal').modal('show');
+           	})
+
+           	$('#loginM').click(function(){
+           		$('#loginModal').modal('show');
+           	})
         });
     </script>
     
