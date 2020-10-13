@@ -195,7 +195,14 @@
     				<a class="carousel-control-next" href="#mycarousel" role="button" data-slide="next">
     					<span class="carousel-control-next-icon"></span>
     				</a>
-    				
+    				<div class="btn-group" id="carouselButton">
+	                    <button class="btn btn-danger btn-sm" id="carousel-pause">
+	                	    <span class="fa fa-pause"></span>
+	                    </button>
+	                    <button class="btn btn-danger btn-sm" id="carousel-play">
+	                	    <span class="fa fa-play"></span>
+	                    </button>
+                	</div>
     			</div>
     		</div>
     	</div>
@@ -257,6 +264,7 @@
                 
             </div>
         </div>
+        <!--
         <div class="row-content">
         	<div class="card offset-2 col-sm-8">
         		<h3 class="card-header bg-warning text-white">Reserve a Table</h3>
@@ -304,7 +312,7 @@
         	</div>
         </div>
     </div>
-
+	-->
     <footer class="footer">
         <div class="container">
             <div class="row">             
@@ -350,13 +358,19 @@
     <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!--
-    <script type="text/javascript">
-    	$(document).ready(function(){
-    		$('[data-toggle="tooltip"]').tooltip();
-    	})
+    <script>
+        $(document).ready(function(){
+            $("#mycarousel").carousel( { interval: 2000 } );
+            $("#carousel-pause").click(function(){
+                $("#mycarousel").carousel('pause');
+            });
+            $("#carousel-play").click(function(){
+                $("#mycarousel").carousel('cycle');
+            });
+        });
     </script>
-    -->
+    
+
 </body>
 
 </html>
